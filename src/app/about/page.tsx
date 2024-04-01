@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { ModeToggle } from "./test";
+import { ModeToggle } from "./mode-toggle";
 
 import {
   Title,
