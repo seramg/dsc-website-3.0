@@ -1,8 +1,43 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const googleSans = localFont({
+  src: [
+    {
+      path: "./../assets/fonts/GoogleSans-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./../assets/fonts/GoogleSans-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./../assets/fonts/GoogleSans-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+
+    {
+      path: "./../assets/fonts/GoogleSans-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./../assets/fonts/GoogleSans-MediumItalic.ttf",
+      weight: "500",
+      style: "italic",
+    },
+    {
+      path: "./../assets/fonts/GoogleSans-BoldItalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +51,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={googleSans.className}>
+        {
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        }
+      </body>
     </html>
   );
 }
