@@ -107,7 +107,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  .dark { 
     /* Project Colors */
 
     --on-background-primary: var(--neutralcore-white);

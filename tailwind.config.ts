@@ -29,7 +29,7 @@ const config = {
 
         backgroundEmPrimary: "var(--background-em-primary)",
         backgroundEmSecondary: "var(--background-em-secondary)",
-        backgroundEmTertiary: "var(--background-em-tertiary)",
+        backgroundEmTertiary: "var(--background-em-teritiary)",
 
         // Shadcn Colours
         border: "hsl(var(--border))",
