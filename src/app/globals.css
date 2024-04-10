@@ -2,71 +2,156 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
+    /* GDSC Colors */
+
+    --lightgrey-100: #f2f2f2;
+    --lightgrey-500: #e6e6d0;
+    --lightgrey-900: #e6e6e6;
+
+    --neutralcore-white: #ffffff;
+    --neutralcore-black: #000000;
+
+    --darkgrey-100: #cccccc;
+    --darkgrey-200: #838383;
+    --darkgrey-300: #999999;
+    --darkgrey-500: #808080;
+    --darkgrey-600: #666666;
+    --darkgrey-700: #4d4d4d;
+    --darkgrey-800: #333333;
+    --darkgrey-900: #1a1a1a;
+
+    --primary-900-blue: #2196f3;
+    --primary-900-green: #4caf50;
+    --primary-900-red: #f44336;
+    --primary-900-yellow: #ffc107;
+
+    --primary-800-blue: #42a5f5;
+    --primary-800-green: #66bb6a;
+    --primary-800-red: #ef5350;
+    --primary-800-yellow: #ffca28;
+
+    --primary-500-blue: #64b5f6;
+    --primary-500-green: #81c784;
+    --primary-500-red: #e57373;
+    --primary-500-yellow: #ffd54f;
+
+    --primary-300-blue: #90caf9;
+    --primary-300-green: #a5d6a7;
+    --primary-300-red: #ef9a9a;
+    --primary-300-yellow: #ffe082;
+
+    --primary-200-blue: #bbdefb;
+    --primary-200-green: #c8e6c9;
+    --primary-200-red: #ffcdd2;
+    --primary-200-yellow: #ffecb3;
+
+    --primary-100-blue: #e3f2fd;
+    --primary-100-green: #e8f5e9;
+    --primary-100-red: #ffebee;
+    --primary-100-yellow: #fff8e1;
+
+    --primary-core-green: #34a853;
+    --primary-core-blue: #4285f4;
+    --primary-core-red: #ea4335;
+    --primary-core-yellow: #fbbc04;
+
+    /* Custom Colors */
+
+    --lightgrey-50: #fafafa;
+
+    /* Project Colors */
+
+    --on-background-primary: var(--neutralcore-black);
+    --on-background-secondary: var(--darkgrey-700);
+
+    --background-primary: var(--neutralcore-white);
+    --background-secondary: var(--lightgrey-50);
+
+    --background-em-primary: var(--primary-100-blue);
+    --background-em-secondary: var(--primary-100-green);
+    --background-em-teritiary: var(--primary-100-yellow);
+
+    /* Shadcn Colors */
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
- 
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
+    /* Project Colors */
+
+    --on-background-primary: var(--neutralcore-white);
+    --on-background-secondary: var(--darkgrey-100);
+
+    --background-primary: var(--neutralcore-black);
+    --background-secondary: var(--darkgrey-900);
+
+    --background-em-primary: var(--primary-900-blue);
+    --background-em-secondary: var(--primary-900-green);
+    --background-em-teritiary: var(--primary-900-yellow);
+
+    /* Shadcn Colors */
+
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
- 
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
+
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
- 
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
- 
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
