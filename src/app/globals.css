@@ -67,12 +67,16 @@
     --on-background-primary: var(--neutralcore-black);
     --on-background-secondary: var(--darkgrey-700);
 
+
     --background-primary: var(--neutralcore-white);
     --background-secondary: var(--lightgrey-50);
+    --background-teritiary: var(--lightgrey-100);
 
     --background-em-primary: var(--primary-100-blue);
     --background-em-secondary: var(--primary-100-green);
     --background-em-teritiary: var(--primary-100-yellow);
+
+    --toggle-background: var(--primary-200-blue);
 
     /* Shadcn Colors */
 
@@ -115,6 +119,7 @@
 
     --background-primary: var(--neutralcore-black);
     --background-secondary: var(--darkgrey-900);
+    --background-teritiary: var(--darkgrey-500);
 
     --background-em-primary: var(--primary-900-blue);
     --background-em-secondary: var(--primary-900-green);

@@ -19,17 +19,20 @@ const config = {
     },
     extend: {
       colors: {
-        
         // Project Colours
         onBackgroundPrimary: "var(--on-background-primary)",
         onBackgroundSecondary: "var(--on-background-secondary)",
+        onBackgroundTeritiary: "var(--on-background-teritiary)",
 
         backgroundPrimary: "var(--background-primary)",
         backgroundSecondary: "var(--background-secondary)",
+        backgroundTeritiary: "var(--background-teritiary)",
 
         backgroundEmPrimary: "var(--background-em-primary)",
         backgroundEmSecondary: "var(--background-em-secondary)",
         backgroundEmTertiary: "var(--background-em-teritiary)",
+
+        toggleBackground:"var(--primary-200-blue)",
 
         // Shadcn Colours
         border: "hsl(var(--border))",
@@ -85,6 +88,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage:{
+        'clouds':"url('/images/clouds.svg')"
+      },
+      backgroundPosition:{
+
+      }
     },
   },
 

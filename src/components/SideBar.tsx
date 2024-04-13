@@ -6,7 +6,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Navbar from "../navbar/Navbar";
+import Navbar from "./Navbar";
 
 export function SideBar() {
   return (
@@ -19,7 +19,7 @@ export function SideBar() {
       <SheetContent>
         <SheetHeader>
           <SheetDescription>
-            <Navbar isCol/>
+            <Navbar isCol />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

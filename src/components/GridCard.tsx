@@ -1,31 +1,32 @@
 import React from "react";
 import Image from "next/image";
-import { Heading2, Body } from "../type-styles";
-import { Button } from "../ui/button";
+import { Heading2, Body } from "./type-styles";
+import { Button } from "./ui/button";
+import { Icon } from "@iconify/react";
 
 const GridCard = ({
   image,
   heading,
   body,
   buttonText,
-  backgroundColor
+  backgroundColor,
 }: {
   image: string;
   heading: string;
   body: string;
   buttonText: string;
-  backgroundColor:string
+  backgroundColor: string;
 }) => {
+  console.log(image)
   return (
-    <div className={`flex flex-col items-start gap-y-12 py-14 px-12 rounded-xl ${backgroundColor}`}>
+    <div
+      className={`flex flex-col items-start gap-y-12 py-14 px-12 rounded-xl ${backgroundColor}`}
+    >
       {/* icon  */}
-      <div className={`flex justify-center py-4 px-6 dark ${backgroundColor} rounded-2xl`}>
-        <Image
-          src={`/images/${image}.svg`} // Route of the image file
-          height={32} // Desired size with correct aspect ratio
-          width={32} // Desired size with correct aspect ratio
-          alt={image}
-        />
+      <div
+        className={`flex justify-center py-4 px-6 dark ${backgroundColor} rounded-2xl`}
+      >
+        <Icon icon={image} width={'2rem'} height={'2rem'} className="text-white"/>
       </div>
       {/* text */}
       <div className="flex flex-col gap-y-6 items-start">
