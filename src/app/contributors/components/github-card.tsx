@@ -1,6 +1,9 @@
 import { Body, BodyLarge, BodySmall } from "@/components/type-styles";
+import { Globe, TwitterLogo } from "@phosphor-icons/react";
 import { LucideAArrowDown, LucideCopy, LucideGitCommit } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import linkedinIcon from "@/../public/assets/icons/linkedin-logo.svg";
 
 type GithubCardProps = {
   name: string;
@@ -65,9 +68,26 @@ export default function GithubCard({ name, changes, time }: GithubCardProps) {
           </div>
         </div>
         <div className="flex gap-2">
-          <div className="bg-slate-100 h-9 w-9 rounded-lg"></div>
-          <div className="bg-slate-100 h-9 w-9 rounded-lg"></div>
-          <div className="bg-slate-100 h-9 w-9 rounded-lg"></div>
+          <div className="bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
+            <TwitterLogo
+              className="text-slate-600"
+              weight="fill"
+              width={20}
+              height={20}
+            ></TwitterLogo>
+          </div>
+          <div className="text-slate-600 bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
+            <Image
+              src={linkedinIcon}
+              alt=""
+              width={20}
+              height={20}
+              className="text-slate-600"
+            ></Image>
+          </div>
+          <div className="bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
+            <Globe className="text-slate-600" width={20} height={20}></Globe>
+          </div>
         </div>
       </div>
     </div>
