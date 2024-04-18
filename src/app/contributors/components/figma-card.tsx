@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dateToElapsed from "@/utils/date-to-elapsed";
 import Contribution from "@/models/contributions";
-import BenGeorgeNetto from "@/../public/assets/teamphotos/bengeorgenetto.png";
+import BenGeorgeNetto from "@/../public/assets/images/team-photos/bengeorgenetto.png";
 import SocialRow from "./social-row";
 
 interface FigmaCardProps {

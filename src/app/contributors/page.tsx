@@ -1,11 +1,21 @@
 "use client";
 
-import { Body, BodySmall, Heading1 } from "@/components/type-styles";
+import {
+  Body,
+  BodyLarge,
+  BodySmall,
+  Heading1,
+  Title,
+} from "@/components/type-styles";
 import React, { use } from "react";
 import FigmaCard from "./components/figma-card";
 import GithubCard from "./components/github-card";
 import { contributions } from "@/data/contributors";
 import GitHubLogo from "@/../public/assets/icons/github-logo.svg";
+import CloudBottomImage from "@/../public/assets/images/CloudsBottom.png";
+import CloudBottomImageDark from "@/../public/assets/images/CloudsBottomDark.png";
+import FigmaFrameLight from "@/../public/assets/images/FigmaFrameLight.png";
+import FigmaFrameDark from "@/../public/assets/images/FigmaFrameDark.png";
 import {
   FigmaLogo,
   CaretDown,
@@ -14,11 +24,62 @@ import {
 } from "@phosphor-icons/react";
 import { RefreshCw } from "lucide-react";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export default function Contributors() {
+  const { systemTheme, theme } = useTheme();
+  const resultantTheme = theme === "system" ? systemTheme : theme;
+
   return (
     <div className="bg-backgroundPrimary flex flex-col">
-      {/* <div className="flex flex-col md:px-[54px] xl:px-[154px] md:py-[84px] p-4 gap-[84px]"> */}
+      <div className="header bg-backgroundPrimary h-[72px] w-full"></div>
+      <div className="relative bg-backgroundEmPrimary dark:bg-blue-600 bg-center	bg-no-repeat bg-cover grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-y-6 md:gap-y-12 px-6 py-6 md:py-[84px] !pb-0 min-h-[50vh] justify-center">
+        <div className=" text-center col-start-1 md:col-start-2 col-end-5 md:col-end-8 lg:col-end-12 flex flex-col gap-8 items-center justify-center">
+          <div className="flex flex-col gap-4 items-center">
+            <Body className="text-onBackgroundSecondary w-full">
+              The Community Project
+            </Body>
+            <Title className="w-full md:w-[75%] lg:w-[75%]">
+              We’re truly built by our community.
+            </Title>
+          </div>
+          <BodyLarge className="text-onBackgroundSecondary w-full md:w-[75%] lg:w-[50%]">
+            Meet the community at GDSC MBCET who spent countless hours fleshing
+            out this website
+          </BodyLarge>
+        </div>
+        <div className=" text-center col-start-1 md:col-start-2 col-end-5 md:col-end-8 lg:col-end-12 flex flex-col gap-8 items-center justify-center">
+          {resultantTheme == "light" && (
+            <Image
+              className="w-full max-w-[100vw]"
+              src={FigmaFrameLight}
+              alt=""
+            ></Image>
+          )}
+          {resultantTheme == "dark" && (
+            <Image
+              className="w-full max-w-[100vw]"
+              src={FigmaFrameDark}
+              alt=""
+            ></Image>
+          )}
+        </div>
+
+        {resultantTheme == "light" && (
+          <Image
+            className="w-lvw max-w-[100vw] absolute bottom-0 left-0 right-0"
+            src={CloudBottomImage}
+            alt=""
+          ></Image>
+        )}
+        {resultantTheme == "dark" && (
+          <Image
+            className="w-lvw max-w-[100vw] absolute bottom-0 left-0 right-0"
+            src={CloudBottomImageDark}
+            alt=""
+          ></Image>
+        )}
+      </div>
       <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-y-[84px] px-6 py-6 md:py-[84px]">
         <div className="col-start-1 md:col-start-2 col-end-5 md:col-end-8 lg:col-end-12 flex flex-col gap-8">
           <div className="flex flex-col gap-6">
@@ -155,6 +216,9 @@ export default function Contributors() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="footer bg-backgroundPrimary h-[500px] w-full">
+        <div className="prefooter bg-backgroundEmPrimary h-[72px] w-full"></div>
       </div>
     </div>
   );
