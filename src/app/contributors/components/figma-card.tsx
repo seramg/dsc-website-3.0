@@ -1,55 +1,111 @@
 import { Body, BodyLarge } from "@/components/type-styles";
-import { Globe, TwitterLogo } from "@phosphor-icons/react";
+import {
+  CaretLeft,
+  CaretRight,
+  CheckCircle,
+  DotsThree,
+  User,
+  X,
+} from "@phosphor-icons/react";
 import linkedinIcon from "@/../public/assets/icons/linkedin-logo.svg";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import dateToElapsed from "@/utils/date-to-elapsed";
+import Contribution from "@/models/contributions";
+import BenGeorgeNetto from "@/../public/assets/teamphotos/bengeorgenetto.png";
+import SocialRow from "./social-row";
 
 interface FigmaCardProps {
-  name: string;
-  changes: string[];
-  time: string;
+  contribution: Contribution;
+  avatarColor: string;
 }
 
-export default function FigmaCard({ name, changes, time }: FigmaCardProps) {
+export default function FigmaCard({
+  contribution,
+  avatarColor,
+}: FigmaCardProps) {
+  let [elapsedTime, setElapsedTime] = useState<string>("");
+  useEffect(() => {
+    setElapsedTime(dateToElapsed(contribution.time));
+  }, [contribution.time]);
   return (
-    <div className="bg-backgroundPrimary border-solid border-2 border-slate-100 w-1fr rounded-xl rounded-bl-none p-6 flex gap-3 overflow-hidden">
-      <div className="bg-slate-100 h-12 w-12 rounded-full grow-0 shrink-0"></div>
-      <div className="flex flex-col gap-8 pt-2 justify-between">
-        <div className="flex flex-col gap-2">
-          <div className="flex gap-2 flex-wrap gap-y-0">
-            <BodyLarge className="!text-[18px] lg:!text-[20px] !font-medium">
-              {name}
-            </BodyLarge>
-            <Body className="text-slate-400">{time}</Body>
-          </div>
-          <div className="changes">
-            {changes.map((change, index) => (
-              <Body key={index} className="text-slate-500">
-                {change}
-              </Body>
-            ))}
-          </div>
+    <div className="bg-surfacePrimary border-solid border-[1px] border-borderPrimary w-1fr rounded-lg p-6 flex flex-col gap-4 overflow-hidden">
+      <div className="flex justify-between">
+        <div className="flex gap-2">
+          <CaretLeft
+            className="text-onBackgroundTertiary"
+            width={20}
+            height={20}
+          ></CaretLeft>
+          <CaretRight width={20} height={20}></CaretRight>
         </div>
         <div className="flex gap-2">
-          <div className="bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
-            <TwitterLogo
-              className="text-slate-600"
+          <DotsThree
+            className="text-onBackgroundTertiary"
+            width={24}
+            height={24}
+          ></DotsThree>
+          <CheckCircle
+            className="text-onBackgroundTertiary"
+            width={24}
+            height={24}
+          ></CheckCircle>
+          <X className="text-onBackgroundTertiary" width={24} height={24}></X>
+        </div>
+      </div>
+      <div className="h-[1px] w-full bg-borderPrimary"> </div>
+      <div className="flex flex-col gap-8 justify-between h-full">
+        <div className="flex gap-3">
+          <div
+            className={
+              "bg-" +
+              avatarColor +
+              " h-10 w-10 rounded-full grow-0 shrink-0 overflow-hidden"
+            }
+          >
+            <Image src={BenGeorgeNetto} alt="" width={40} height={40}></Image>
+          </div>
+          <div className="flex flex-col gap-4 pt-2">
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2 flex-wrap gap-y-0">
+                <BodyLarge className="!text-[18px] lg:!text-[20px] !font-medium">
+                  {contribution.contributor.name}
+                </BodyLarge>
+                <Body className="text-onBackgroundTertiary">{elapsedTime}</Body>
+              </div>
+              <div className="changes">
+                <ul className="ml-2">
+                  {contribution.changes.map((change, index) => (
+                    <li key={index} className="list-['-_']">
+                      <Body className="text-onBackgroundSecondary">
+                        {change}
+                      </Body>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <SocialRow socials={contribution.contributor.socials}></SocialRow>
+          </div>
+        </div>
+        <div className="flex gap-4 items-center">
+          <div
+            className={
+              "bg-" +
+              avatarColor +
+              " h-10 w-10 rounded-full grow-0 shrink-0 overflow-hidden flex justify-center items-center"
+            }
+          >
+            <User
               weight="fill"
-              width={20}
-              height={20}
-            ></TwitterLogo>
+              className="text-black opacity-20"
+              width={24}
+              height={24}
+            ></User>
+            {/* <Image src={BenGeorgeNetto} alt="" width={40} height={40}></Image> */}
           </div>
-          <div className="text-slate-600 bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
-            <Image
-              src={linkedinIcon}
-              alt=""
-              width={20}
-              height={20}
-              className="text-slate-600"
-            ></Image>
-          </div>
-          <div className="bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
-            <Globe className="text-slate-600" width={20} height={20}></Globe>
+          <div className="px-4 py-3 bg-backgroundNeutralPrimary rounded-lg w-full text-onBackgroundTertiary select-none">
+            Reply
           </div>
         </div>
       </div>

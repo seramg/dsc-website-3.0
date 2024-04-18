@@ -3,16 +3,24 @@ import { Globe, TwitterLogo } from "@phosphor-icons/react";
 import { LucideAArrowDown, LucideCopy, LucideGitCommit } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import linkedinIcon from "@/../public/assets/icons/linkedin-logo.svg";
+import LinkedinIcon from "@/../public/assets/icons/linkedin-logo.svg";
+import dateToElapsed from "@/utils/date-to-elapsed";
+import Contribution from "@/models/contributions";
+import BenGeorgeNetto from "@/../public/assets/teamphotos/bengeorgenetto.png";
+import SocialRow from "./social-row";
 
 type GithubCardProps = {
-  name: string;
-  changes: string[];
-  time: string;
+  contribution: Contribution;
+  avatarColor: string;
 };
 
-export default function GithubCard({ name, changes, time }: GithubCardProps) {
+export default function GithubCard({
+  contribution,
+  avatarColor,
+}: GithubCardProps) {
   const [commitIds, setCommitIds] = useState<string[]>([]);
+
+  let [elapsedTime, setElapsedTime] = useState<string>("");
 
   useEffect(() => {
     const generateCommitId = (index: number) => {
@@ -22,41 +30,57 @@ export default function GithubCard({ name, changes, time }: GithubCardProps) {
       return `${randomId}`;
     };
 
-    const newCommitIds = changes.map((_, index) => generateCommitId(index));
+    const newCommitIds = contribution.changes.map((_, index) =>
+      generateCommitId(index)
+    );
     setCommitIds(newCommitIds);
-  }, [changes]);
+
+    setElapsedTime(dateToElapsed(contribution.time));
+  }, [contribution.changes, contribution.time]);
 
   return (
-    <div className="bg-backgroundPrimary border-solid border-2 border-slate-100 w-1fr rounded-lg p-6 flex flex-col gap-4 overflow-hidden">
-      <div className="bg-slate-100 h-12 w-12 rounded-full grow-0 shrink-0"></div>
+    <div className="bg-surfacePrimary border-solid border-[1px] border-borderPrimary w-1fr rounded-lg p-6 flex flex-col gap-4 overflow-hidden">
+      <div
+        className={
+          "bg-" +
+          avatarColor +
+          " h-10 w-10 rounded-full grow-0 shrink-0 overflow-hidden"
+        }
+      >
+        <Image src={BenGeorgeNetto} alt="" width={40} height={40}></Image>
+      </div>
       <div className="flex flex-col gap-8 justify-between h-full">
         <div className="flex flex-col gap-6">
           <div className="flex gap-2">
             <BodyLarge className="!text-[18px] lg:!text-[20px] !font-medium">
-              {name}
+              {contribution.contributor.name}
             </BodyLarge>
-            <Body className="text-slate-400">{time}</Body>
+            <Body className="text-onBackgroundTertiary">{elapsedTime}</Body>
           </div>
           <div className="flex gap-3">
             <div className="flex flex-col items-center gap-3">
               <LucideGitCommit></LucideGitCommit>
-              <div className="w-[1px] h-full bg-slate-200"></div>
+              <div className="w-[1px] h-full bg-borderPrimary"></div>
             </div>
             <div className="flex flex-col gap-2 w-full">
               Committed to this repository
-              <div className="changes flex flex-col border-solid border-2 border-slate-200 rounded-lg bg-slate-300 gap-[1px] overflow-hidden">
-                {changes.map((change, index) => (
+              <div className="changes flex flex-col border-solid border-[1px] border-borderPrimary rounded-lg bg-borderPrimary gap-[1px] overflow-hidden">
+                {contribution.changes.map((change, index) => (
                   <div
-                    className="bg-backgroundPrimary flex justify-between items-center gap-4 p-2 pl-3 flex-wrap gap-y-2"
+                    className="bg-surfacePrimary flex justify-between items-center gap-4 p-2 pl-3 flex-wrap gap-y-2"
                     key={index}
                   >
-                    <Body className="text-slate-500">{change}</Body>
-                    <div className="flex border-solid border-2 rounded-sm bg-slate-300 gap-[1px]">
-                      <div className="flex p-1 bg-backgroundSecondary">
-                        <LucideCopy width={16} height={16} />
+                    <Body className="text-onBackgroundSecondary">{change}</Body>
+                    <div className="flex border-solid border-[1px] border-borderSecondary rounded-sm bg-borderSecondary gap-[1px] overflow-hidden select-none	">
+                      <div className="flex p-1 bg-surfaceSecondary">
+                        <LucideCopy
+                          width={16}
+                          height={16}
+                          className="text-onBackgroundSecondary"
+                        />
                       </div>
-                      <div className="flex px-1 py-2 h-6 items-center bg-backgroundSecondary">
-                        <BodySmall className="text-blue-500 ">
+                      <div className="flex px-1 py-2 h-6 items-center bg-surfaceSecondary">
+                        <BodySmall className="text-onBackgroundEmPrimary">
                           {commitIds[index]}
                         </BodySmall>
                       </div>
@@ -67,28 +91,7 @@ export default function GithubCard({ name, changes, time }: GithubCardProps) {
             </div>
           </div>
         </div>
-        <div className="flex gap-2">
-          <div className="bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
-            <TwitterLogo
-              className="text-slate-600"
-              weight="fill"
-              width={20}
-              height={20}
-            ></TwitterLogo>
-          </div>
-          <div className="text-slate-600 bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
-            <Image
-              src={linkedinIcon}
-              alt=""
-              width={20}
-              height={20}
-              className="text-slate-600"
-            ></Image>
-          </div>
-          <div className="bg-slate-100 h-9 w-9 rounded-lg flex justify-center items-center">
-            <Globe className="text-slate-600" width={20} height={20}></Globe>
-          </div>
-        </div>
+        <SocialRow socials={contribution.contributor.socials}></SocialRow>
       </div>
     </div>
   );
