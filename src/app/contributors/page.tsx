@@ -12,10 +12,10 @@ import FigmaCard from "./components/figma-card";
 import GithubCard from "./components/github-card";
 import { contributions } from "@/data/contributors";
 import GitHubLogo from "@/../public/assets/icons/github-logo.svg";
-import CloudBottomImage from "@/../public/assets/images/CloudsBottom.png";
-import CloudBottomImageDark from "@/../public/assets/images/CloudsBottomDark.png";
-import FigmaFrameLight from "@/../public/assets/images/FigmaFrameLight.png";
-import FigmaFrameDark from "@/../public/assets/images/FigmaFrameDark.png";
+import CloudBottomImage from "@/../public/assets/images/clouds-bottom.png";
+import CloudBottomImageDark from "@/../public/assets/images/clouds-bottom-dark.png";
+import FigmaFrameLight from "@/../public/assets/images/figma-frame-light.png";
+import FigmaFrameDark from "@/../public/assets/images/figma-frame-dark.png";
 import {
   FigmaLogo,
   CaretDown,
