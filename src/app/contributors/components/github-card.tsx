@@ -6,7 +6,7 @@ import Image from "next/image";
 import LinkedinIcon from "@/../public/assets/icons/linkedin-logo.svg";
 import dateToElapsed from "@/utils/date-to-elapsed";
 import Contribution from "@/models/contributions";
-import BenGeorgeNetto from "@/../public/assets/images/team-photos/bengeorgenetto.png";
+import ProfileImage from "@/../public/assets/images/team-photos/bengeorgenetto.png";
 import SocialRow from "./social-row";
 
 type GithubCardProps = {
@@ -47,7 +47,7 @@ export default function GithubCard({
           " h-10 w-10 rounded-full grow-0 shrink-0 overflow-hidden"
         }
       >
-        <Image src={BenGeorgeNetto} alt="" width={40} height={40}></Image>
+        <Image src={ProfileImage} alt="" width={40} height={40}></Image>
       </div>
       <div className="flex flex-col gap-8 justify-between h-full">
         <div className="flex flex-col gap-6">

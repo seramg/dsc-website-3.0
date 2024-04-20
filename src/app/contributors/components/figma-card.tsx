@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import dateToElapsed from "@/utils/date-to-elapsed";
 import Contribution from "@/models/contributions";
-import BenGeorgeNetto from "@/../public/assets/images/team-photos/bengeorgenetto.png";
+import ProfileImage from "@/../public/assets/images/team-photos/bengeorgenetto.png";
 import SocialRow from "./social-row";
 
 interface FigmaCardProps {
@@ -63,7 +63,7 @@ export default function FigmaCard({
               " h-10 w-10 rounded-full grow-0 shrink-0 overflow-hidden"
             }
           >
-            <Image src={BenGeorgeNetto} alt="" width={40} height={40}></Image>
+            <Image src={ProfileImage} alt="" width={40} height={40}></Image>
           </div>
           <div className="flex flex-col gap-4 pt-2">
             <div className="flex flex-col gap-2">
