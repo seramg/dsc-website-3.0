@@ -1,5 +1,13 @@
 import type { Config } from "tailwindcss";
 
+const safeList = [
+  "bg-backgroundPrimary",
+  "bg-backgroundSecondary",
+  "bg-backgroundEmPrimary",
+  "bg-backgroundEmSecondary",
+  "bg-backgroundEmTertiary",
+];
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -23,6 +31,12 @@ const config = {
         // Project Colours
         onBackgroundPrimary: "var(--on-background-primary)",
         onBackgroundSecondary: "var(--on-background-secondary)",
+        onBackgroundTertiary: "var(--on-background-tertiary)",
+
+        onBackgroundEmPrimary: "var(--on-background-em-primary)",
+        onBackgroundEmSecondary: "var(--on-background-em-secondary)",
+        onBackgroundEmTertiary: "var(--on-background-em-tertiary)",
+        onBackgroundEmQuaternary: "var(--on-background-em-quaternary)",
 
         backgroundPrimary: "var(--background-primary)",
         backgroundSecondary: "var(--background-secondary)",
@@ -30,6 +44,21 @@ const config = {
         backgroundEmPrimary: "var(--background-em-primary)",
         backgroundEmSecondary: "var(--background-em-secondary)",
         backgroundEmTertiary: "var(--background-em-tertiary)",
+        backgroundEmQuaternary: "var(--background-em-quaternary)",
+
+        backgroundNeutralPrimary : "var(--background-neutral-primary)",
+
+        backgroundInversePrimary: "var(--background-inverse-primary)",
+
+        surfacePrimary: "var(--surface-primary)",
+        surfaceSecondary: "var(--surface-secondary)",
+        surfaceTertiary: "var(--surface-tertiary)",
+
+        onBackgroundInversePrimary: "var(--on-background-inverse-primary)",
+        onBackgroundInverseSecondary: "var(--on-background-inverse-secondary)",
+
+        borderPrimary : "var(--border-primary)",
+        borderSecondary : "var(--border-secondary)",
 
         // Shadcn Colours
         border: "hsl(var(--border))",
@@ -87,6 +116,7 @@ const config = {
       },
     },
   },
+  safelist: safeList,
 
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
