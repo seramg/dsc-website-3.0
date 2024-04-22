@@ -27,7 +27,6 @@ const config = {
     },
     extend: {
       colors: {
-        
         // Project Colours
         onBackgroundPrimary: "var(--on-background-primary)",
         onBackgroundSecondary: "var(--on-background-secondary)",
@@ -40,6 +39,7 @@ const config = {
 
         backgroundPrimary: "var(--background-primary)",
         backgroundSecondary: "var(--background-secondary)",
+        backgroundTeritiary: "var(--background-teritiary)",
 
         backgroundEmPrimary: "var(--background-em-primary)",
         backgroundEmSecondary: "var(--background-em-secondary)",
@@ -114,6 +114,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage:{
+        'clouds':"url('/images/clouds.svg')"
+      },
+      backgroundPosition:{
+
+      }
     },
   },
   safelist: safeList,

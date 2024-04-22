@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -75,6 +76,7 @@
 
     --background-primary: var(--neutralcore-white);
     --background-secondary: var(--lightgrey-50);
+    --background-teritiary: var(--lightgrey-100);
 
     --background-em-primary: var(--primary-100-blue);
     --background-em-secondary: var(--primary-100-green);
@@ -94,6 +96,8 @@
 
     --border-primary: var(--lightgrey-500);
     --border-secondary: var(--lightgrey-900);
+
+    --toggle-background: var(--primary-200-blue);
 
     /* Shadcn Colors */
 
