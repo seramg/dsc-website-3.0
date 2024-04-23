@@ -8,20 +8,20 @@ import {
 } from "@/components/ui/sheet";
 import Navbar from "./Navbar";
 
-export function SideBar() {
+interface SideBarProps {
+  className?: string;
+}
+
+export function SideBar({ className }: SideBarProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" className={className} size={"icon"}>
           <span className="material-symbols-rounded">more_horiz</span>
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <SheetHeader>
-          <SheetDescription>
-            <Navbar isCol />
-          </SheetDescription>
-        </SheetHeader>
+        <Navbar isCol />
       </SheetContent>
     </Sheet>
   );

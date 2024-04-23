@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <>
       <div
-        className="flex flex-col items-center justify-center text-center my-0 bg-backgroundEmPrimary bg-clouds bg-cover	pt-20 px-60 bg-no-repeat	gap-16"
+        className="flex flex-col items-center justify-center text-center my-0 bg-backgroundEmPrimary dark:bg-blue-600 bg-clouds bg-cover	pt-20 px-60 bg-no-repeat	gap-16"
         style={{
           backgroundPosition: "center top 152px ", // Centers the image horizontally and positions it 152px from the top
         }}
@@ -107,13 +107,11 @@ const HomePage = () => {
           className="flex gap-3 justify-between overflow-x-scroll"
           style={{ maxWidth: "1204px" }}
         >
-          <div
-            className="flex gap-3 justify-between overflow-x-hidden flex-[0_0_auto]"
-          >
+          <div className="flex gap-3 justify-between overflow-x-hidden flex-[0_0_auto]">
             <GalleryCard />
-            <GalleryCard /> 
-            <GalleryCard /> 
-            <GalleryCard /> 
+            <GalleryCard />
+            <GalleryCard />
+            <GalleryCard />
             <GalleryCard />
             <GalleryCard />
           </div>
@@ -133,16 +131,10 @@ const HomePage = () => {
               className="py-3 px-5 rounded-full bg-transparent  border-black	"
               variant="outline"
             >
-              <Icon
-              icon="maki:arrow"
-                className="w-auto h-auto rotate-180	"
-              />
+              <Icon icon="maki:arrow" className="w-auto h-auto rotate-180	" />
             </Button>
             <Button className="py-3 px-5 rounded-full ">
-              <Icon
-              icon="maki:arrow"
-                className="w-auto h-auto "
-              />
+              <Icon icon="maki:arrow" className="w-auto h-auto " />
             </Button>
           </div>
         </div>
@@ -175,7 +167,13 @@ const HomePage = () => {
           </Button>
         </div>
         <div>
-          <Image src="/images/books.svg" height={0} width={0} className="w-auto h-auto" alt="books" />
+          <Image
+            src="/images/books.svg"
+            height={0}
+            width={0}
+            className="w-auto h-auto"
+            alt="books"
+          />
         </div>
       </div>
 
@@ -185,17 +183,15 @@ const HomePage = () => {
           src="./images/boy-kicking-ball.svg"
           width={0}
           height={0}
-          className="w-auto h-auto"
+          className="w-full h-auto"
           alt={"boy kicking ball"}
         />
         <div
           className="flex flex-col items-center justify-center text-center my-0 mx-auto"
           style={{ padding: "0 431px" }}
         >
-        <span className=" flex flex-col gap-8">
-            <Title>
-              The hardest part is taking that first step
-            </Title>
+          <span className=" flex flex-col gap-8">
+            <Title>The hardest part is taking that first step</Title>
             <BodyLarge className="text-onBackgroundSecondary">
               It’s time to plant your feet on the ground and start building out
               your dreams.{" "}
@@ -214,9 +210,7 @@ const HomePage = () => {
       </div>
 
       {/* ps */}
-      <div
-        className="flex items-center justify-center w-full mx-auto my-0 bg-backgroundEmPrimary p-8 gap-3"
-      >
+      <div className="flex items-center justify-center w-full mx-auto my-0 bg-backgroundEmPrimary p-8 gap-3">
         <Body>
           P.S. This website was made with by some cool frens who dared to take
           the first step

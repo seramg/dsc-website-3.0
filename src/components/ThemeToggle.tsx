@@ -2,8 +2,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import ReusableContextMenu from "./ui/reusable-context-menu";
+import { Moon, Sun } from "@phosphor-icons/react";
+import { Button } from "./ui/button";
 
-const ToggleButton = () => {
+interface ToggleButtonProps {
+  className?: string;
+}
+
+const ToggleButton = ({ className }: ToggleButtonProps) => {
   const { theme, setTheme, systemTheme } = useTheme();
   const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
 
@@ -61,17 +67,33 @@ const ToggleButton = () => {
         },
       ]}
     >
-      <div
-        className={`flex p-1 bg-backgroundEmPrimary dark:bg-blue-600 justify-between items-center w-16 rounded-2xl cursor-pointer`}
+      <Button
+        size={"icon"}
+        className={`${className} flex p-1 !bg-onBackgroundEmPrimary justify-between items-center w-14 h-6 rounded-full`}
         onClick={() => toggleTheme()}
       >
         <div
-          className={`rounded-full w-4 h-4 bg-white dark border border-onBackgroundSecondary transition-transform ${
+          className={`rounded-full w-4 h-4 bg-backgroundPrimary transition-transform ${
             isDarkMode ? "transform translate-x-8" : ""
           }`}
         ></div>
-
-        <Image
+        {isDarkMode ? (
+          <Moon
+            weight="fill"
+            className={`w-auto h-auto transition-transform ${
+              isDarkMode ? "transform -translate-x-8" : ""
+            }`}
+          ></Moon>
+        ) : (
+          <Sun
+            weight="fill"
+            color="yellow"
+            className={`w-auto h-auto transition-transform ${
+              isDarkMode ? "transform -translate-x-8" : ""
+            }`}
+          ></Sun>
+        )}
+        {/* <Image
           src={isDarkMode ? "/images/moon.svg" : "/images/sun.svg"}
           width={0}
           height={0}
@@ -79,8 +101,8 @@ const ToggleButton = () => {
           className={`w-auto h-auto transition-transform ${
             isDarkMode ? "transform -translate-x-8" : ""
           }`}
-        />
-      </div>
+        /> */}
+      </Button>
     </ReusableContextMenu>
   );
 };
