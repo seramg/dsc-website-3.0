@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Body, BodySmall, Heading3 } from "./type-styles";
 import { Icon } from "@iconify/react";
+import SocialRow from "@/app/contributors/components/social-row";
 
 const Footer = () => {
   return (
@@ -37,25 +38,14 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-2">          <div className="py-2 px-2 bg-backgroundTeritiary rounded-lg">
-            <Icon icon="ic:round-email" />{" "}
-          </div>
-          <div className="py-2 px-2 bg-backgroundTeritiary rounded-lg">
-            <Icon icon="ri:instagram-fill" />{" "}
-          </div>
-          <div className="py-2 px-2 bg-backgroundTeritiary rounded-lg">
-            <Icon icon="mdi:twitter" />{" "}
-          </div>
-          <div className="py-2 px-2 bg-backgroundTeritiary rounded-lg">
-            <Icon icon="mingcute:youtube-fill" />{" "}
-          </div>
-          <div className="py-2 px-2 bg-backgroundTeritiary rounded-lg">
-            <Icon icon="mdi:linkedin" />{" "}
-          </div>
-          <div className="py-2 px-2 bg-backgroundTeritiary rounded-lg">
-            <Icon icon="iconoir:figma" />{" "}
-          </div>
-</div>
+          <SocialRow
+            socials={{
+              twitter: "gdscmbcet",
+              linkedin: "gdscmbcet",
+              instagram: "gdscmbcet",
+              github: "dscmbcet",
+            }}
+          ></SocialRow>
         </div>
       </div>
       <div className="flex mx-auto mt-388" style={{ gap: "86px" }}>
@@ -66,7 +56,7 @@ const Footer = () => {
         src="/images/doodles.svg" // Route of the image file
         height={0} // Desired size with correct aspect ratio
         width={0} // Desired size with correct aspect ratio
-        style={{ width: '100%', height: 'auto' }} // optional
+        style={{ width: "100%", height: "auto" }} // optional
         alt="doodles"
       />
     </div>
