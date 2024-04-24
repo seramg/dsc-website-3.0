@@ -63,6 +63,18 @@
     --lightgrey-50: #fafafa;
     --darkgrey-950: #121212;
 
+    --darkblue-900: #0a2d49;
+    --darkblue-800: #0d3c61;
+    --darkblue-700: #114b7a;
+
+    --darkyellow-900: #4d3a02;
+    --darkyellow-800: #664d03;
+    --darkyellow-700: #806104;
+
+    --darkgreen-900: #173518;
+    --darkgreen-800: #1e4620;
+    --darkgreen-700: #265828;
+
     /* Project Colors */
 
     --on-background-primary: var(--neutralcore-black);
@@ -73,6 +85,8 @@
     --on-background-em-secondary: var(--primary-900-green);
     --on-background-em-tertiary: var(--primary-900-yellow);
     --on-background-em-quaternary: var(--primary-900-red);
+
+    --on-background-neutral-primary: var(--darkgrey-200);
 
     --background-primary: var(--neutralcore-white);
     --background-secondary: var(--lightgrey-50);
@@ -96,6 +110,10 @@
 
     --border-primary: var(--lightgrey-500);
     --border-secondary: var(--lightgrey-900);
+
+    --border-em-primary: var(--primary-200-blue);
+    --border-em-secondary: var(--primary-200-green);
+    --border-em-tertiary: var(--primary-200-yellow);
 
     --toggle-background: var(--primary-200-blue);
 
@@ -139,17 +157,19 @@
     --on-background-secondary: var(--darkgrey-100);
     --on-background-tertiary: var(--darkgrey-200);
 
-    --on-background-em-primary: var(--primary-300-blue);
-    --on-background-em-secondary: var(--primary-300-green);
-    --on-background-em-tertiary: var(--primary-300-yellow);
-    --on-background-em-quaternary: var(--primary-300-red);
+    --on-background-em-primary: var(--primary-500-blue);
+    --on-background-em-secondary: var(--primary-500-green);
+    --on-background-em-tertiary: var(--primary-500-yellow);
+    --on-background-em-quaternary: var(--primary-500-red);
+
+    --on-background-neutral-primary: var(--darkgrey-100);
 
     --background-primary: var(--neutralcore-black);
     --background-secondary: var(--darkgrey-950);
 
-    --background-em-primary: var(--primary-300-blue);
-    --background-em-secondary: var(--primary-300-green);
-    --background-em-tertiary: var(--primary-300-yellow);
+    --background-em-primary: var(--darkblue-900);
+    --background-em-secondary: var(--darkgreen-900);
+    --background-em-tertiary: var(--darkyellow-900);
     --background-em-quaternary: var(--primary-300-red);
 
     --background-neutral-primary: var(--darkgrey-800);
@@ -165,6 +185,10 @@
 
     --border-primary: var(--darkgrey-800);
     --border-secondary: var(--darkgrey-700);
+
+    --border-em-primary: var(--darkblue-700);
+    --border-em-secondary: var(--darkgreen-700);
+    --border-em-tertiary: var(--darkyellow-700);
 
     /* Shadcn Colors */
 

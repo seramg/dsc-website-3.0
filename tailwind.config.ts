@@ -6,6 +6,23 @@ const safeList = [
   "bg-backgroundEmPrimary",
   "bg-backgroundEmSecondary",
   "bg-backgroundEmTertiary",
+  "text-backgroundEmPrimary",
+  "text-backgroundEmSecondary",
+  "text-backgroundEmTertiary",
+  "text-backgroundNeutralPrimary",
+  "hover:text-onBackgroundEmPrimary",
+  "hover:text-onBackgroundEmSecondary",
+  "hover:text-onBackgroundEmTertiary",
+  "hover:border-onBackgroundEmPrimary",
+  "hover:border-onBackgroundEmSecondary",
+  "hover:border-onBackgroundEmTertiary",
+  "hover:border-onBackgroundNeutralPrimary",
+  "hover:outline-borderEmPrimary",
+  "hover:outline-borderEmSecondary",
+  "hover:outline-borderEmTertiary",
+  "hover:outline-borderSecondary",
+  
+  
 ];
 
 const config = {
@@ -37,6 +54,8 @@ const config = {
         onBackgroundEmTertiary: "var(--on-background-em-tertiary)",
         onBackgroundEmQuaternary: "var(--on-background-em-quaternary)",
 
+        onBackgroundNeutralPrimary: "var(--on-background-neutral-primary)",
+
         backgroundPrimary: "var(--background-primary)",
         backgroundSecondary: "var(--background-secondary)",
         backgroundTeritiary: "var(--background-teritiary)",
@@ -59,6 +78,10 @@ const config = {
 
         borderPrimary : "var(--border-primary)",
         borderSecondary : "var(--border-secondary)",
+
+        borderEmPrimary : "var(--border-em-primary)",
+        borderEmSecondary : "var(--border-em-secondary)",
+        borderEmTertiary : "var(--border-em-tertiary)",
 
         // Shadcn Colours
         border: "hsl(var(--border))",
