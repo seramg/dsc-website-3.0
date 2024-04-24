@@ -4,6 +4,7 @@ import { Globe, InstagramLogo, TwitterLogo } from "@phosphor-icons/react";
 import GitHubLogo from "@/../public/assets/icons/github-logo.svg";
 
 interface SocialRowProps {
+  grow?: boolean;
   socials: {
     twitter?: string;
     linkedin?: string;
@@ -18,10 +19,10 @@ interface SocialTileProps {
   icon: JSX.Element;
 }
 
-export default function SocialRow({ socials }: SocialRowProps) {
+export default function SocialRow({ socials, grow = true }: SocialRowProps) {
   const hoverClass = " group-hover/socialtile:text-onBackgroundEmPrimary";
   return (
-    <div className="socials flex flex-wrap gap-2 w-full">
+    <div className={`socials flex flex-wrap gap-2 ${grow ? "w-full" : ""}`}>
       {socials.instagram && (
         <SocialTile
           href={"https://instagram.com/" + socials.instagram}
