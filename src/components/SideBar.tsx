@@ -16,7 +16,11 @@ export function SideBar({ className }: SideBarProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className={className} size={"icon"}>
+        <Button
+          variant="outline"
+          className={`${className} bg-transparent border-borderPrimary hover:bg-white/50 dark:hover:bg-white/10`}
+          size={"icon"}
+        >
           <span className="material-symbols-rounded">more_horiz</span>
         </Button>
       </SheetTrigger>
