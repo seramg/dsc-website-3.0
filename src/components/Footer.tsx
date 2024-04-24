@@ -1,66 +1,116 @@
 import React from "react";
 import Image from "next/image";
 import { Body, BodySmall, Heading3 } from "./type-styles";
-import { Icon } from "@iconify/react";
 import SocialRow from "@/app/contributors/components/social-row";
 
+import useResultantTheme from "./hooks/useResultantTheme";
+import Link from "next/link";
+
 const Footer = () => {
+  const resultantTheme = useResultantTheme();
+
   return (
-    <div className="flex flex-col">
-      <div
-        className="flex justify-between"
-        style={{ padding: "0 97px 0 52px" }}
-      >
-        <div className="py-12" style={{ paddingTop: "50px" }}>
-          <Image
-            src="/images/logo.svg" // Route of the image file
-            height={26} // Desired size with correct aspect ratio
-            width={220} // Desired size with correct aspect ratio
-            alt="logo"
-          />
-        </div>
-        <div className="flex flex-col gap-7">
-          <div className="flex gap-7" style={{ paddingTop: "73px" }}>
-            <div className="flex flex-col gap-4">
-              <Heading3>About</Heading3>
-              <div className="flex flex-col gap-2">
-                <Body>Who we are</Body>
-                <Body>Events</Body>
-                <Body>Magazine</Body>
-                <Body>Community Guidelines</Body>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4">
-              <Heading3>Curations</Heading3>
-              <div className="flex flex-col gap-2">
-                <Body>Opportunities</Body>
-                <Body>Resources</Body>
+    <div className="flex flex-col bg-backgroundPrimary">
+      <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-y-[84px] px-6 py-12 md:py-[84px] lg:py-[84px] bg-backgroundPrimary">
+        <div className="col-start-1 md:col-start-2 col-end-5 md:col-end-8 lg:col-end-12 flex flex-col items-center gap-24">
+          <div className="w-full flex justify-between flex-col md:flex-row gap-16">
+            <Image
+              className="h-fit w-auto max-w-64"
+              src={
+                resultantTheme == "light"
+                  ? "/assets/logos/gdsc-horizontal-logo.svg"
+                  : "/assets/logos/gdsc-horizontal-logo-dark.svg"
+              }
+              height={0} // Desired size with correct aspect ratio
+              width={0} // Desired size with correct aspect ratio
+              alt="logo"
+            />
+
+            <div className="flex flex-col gap-8">
+              <div className="flex flex-col sm:flex-row gap-8">
+                <div className="flex flex-col gap-4">
+                  <Heading3>About</Heading3>
+                  <div className="flex flex-col gap-2">
+                    <NavbarItem href="/">Who we are</NavbarItem>
+                    <NavbarItem href="/">Events</NavbarItem>
+                    <NavbarItem href="/">Magazine</NavbarItem>
+                    <NavbarItem href="/">Community Guidelines</NavbarItem>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <Heading3>Curations</Heading3>
+                  <div className="flex flex-col gap-2">
+                    <NavbarItem href="/">Opportunities</NavbarItem>
+                    <NavbarItem href="/">Resources</NavbarItem>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <SocialRow
-            socials={{
-              twitter: "gdscmbcet",
-              linkedin: "gdscmbcet",
-              instagram: "gdscmbcet",
-              github: "dscmbcet",
-            }}
-          ></SocialRow>
+          {/* <div className="w-full flex justify-center sm:justify-start md:justify-end">
+            <SocialRow
+              grow={false}
+              socials={{
+                twitter: "gdscmbcet",
+                linkedin: "gdscmbcet",
+                instagram: "gdscmbcet",
+                github: "dscmbcet",
+              }}
+            ></SocialRow>
+          </div> */}
+
+          <div className="flex gap-4 sm:gap-24 justify-between items-center flex-col sm:flex-row">
+            <BodySmall className="text-onBackgroundSecondary">
+              GDSC MBCET © 2024. All Rights Reserved.
+            </BodySmall>
+            <SocialRow
+              grow={false}
+              socials={{
+                twitter: "gdscmbcet",
+                linkedin: "gdscmbcet",
+                instagram: "gdscmbcet",
+                github: "dscmbcet",
+              }}
+            ></SocialRow>
+            <BodySmall className="text-onBackgroundSecondary">
+              Made with 💙 by some{" "}
+              <Link
+                href="/contributors"
+                className="underline hover:text-onBackgroundEmPrimary"
+              >
+                cool frens
+              </Link>
+            </BodySmall>
+          </div>
         </div>
       </div>
-      <div className="flex mx-auto mt-388" style={{ gap: "86px" }}>
-        <BodySmall>GDSC MBCET © 2023. All Rights Reserved.</BodySmall>
-        <BodySmall>Made with by some cool frens</BodySmall>
+      <div className="imageCropper flex items-center justify-center">
+        <Image
+          src="/images/doodles.svg" // Route of the image file
+          height={0} // Desired size with correct aspect ratio
+          width={0} // Desired size with correct aspect ratio
+          className="w-full min-w-[1000px]" // Style of the image
+          alt="doodles"
+        />
       </div>
-      <Image
-        src="/images/doodles.svg" // Route of the image file
-        height={0} // Desired size with correct aspect ratio
-        width={0} // Desired size with correct aspect ratio
-        style={{ width: "100%", height: "auto" }} // optional
-        alt="doodles"
-      />
     </div>
   );
 };
+
+interface NavbarItemProps {
+  children: React.ReactNode;
+  href: string;
+}
+
+function NavbarItem({ children, href }: NavbarItemProps) {
+  return (
+    <Link
+      className="menu-item text-onBackgroundSecondary hover:text-onBackgroundEmPrimary"
+      href={href}
+    >
+      <Body>{children}</Body>
+    </Link>
+  );
+}
 
 export default Footer;
