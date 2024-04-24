@@ -4,9 +4,14 @@ import { Body } from "./type-styles";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
+  highlightColor?: string;
 }
 
-export default function Button({ variant = "primary", ...props }: ButtonProps) {
+export default function Button({
+  variant = "primary",
+  highlightColor,
+  ...props
+}: ButtonProps) {
   return (
     <ButtonComponent
       className={`rounded-full ${
@@ -24,7 +29,15 @@ export default function Button({ variant = "primary", ...props }: ButtonProps) {
       ${
         variant === "primary"
           ? "hover:bg-onBackgroundEmPrimary"
-          : "hover:bg-backgroundPrimary hover:border-onBackgroundEmPrimary hover:text-onBackgroundEmPrimary"
+          : `hover:bg-white/50 dark:hover:bg-white/10 hover:border-${
+              highlightColor !== undefined
+                ? highlightColor
+                : "onBackgroundEmPrimary"
+            } hover:text-${
+              highlightColor != undefined
+                ? highlightColor
+                : "onBackgroundEmPrimary"
+            }`
       } ${props.className}`}
       onClick={props.onClick}
     >
