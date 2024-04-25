@@ -39,8 +39,16 @@ function HomePage() {
           height={0}
           className="w-auto min-w-[60%] h-auto z-[1]"
           alt={"woman looking up"}
-        />
-
+        />{" "}
+        {resultantTheme && (
+          <Image
+            src={"/assets/images/stars-background.svg"}
+            width={0}
+            height={0}
+            className="absolute bottom-0 z-0 w-full h-auto animate-pulse"
+            alt=""
+          ></Image>
+        )}
         <Image
           src={
             resultantTheme == "light"
