@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const googleSans = localFont({
   src: [
@@ -61,7 +63,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Suspense fallback={<Loading />}>{children}</Suspense>
+            <Suspense fallback={<Loading />}>
+              <main className="flex flex-col justify-center overflow-x-hidden relative">
+                <Header />
+                {children}
+                <Footer />
+              </main>
+            </Suspense>
           </ThemeProvider>
         }
       </body>

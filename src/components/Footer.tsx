@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Body, BodySmall, Heading3 } from "./type-styles";
