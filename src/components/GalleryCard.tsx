@@ -25,7 +25,7 @@ const GalleryCard = () => {
         </div>
         <div className="flex justify-between items-center">
           <Body className="text-onBackgroundTertiary">12th Jan</Body>
-          <Badge className=" cursor-pointer py-2 px-3 bg-backgroundEmPrimary hover:bg-backgroundEmPrimary border border-borderEmPrimary rounded-full">
+          <Badge className="cursor-default py-2 px-3 bg-backgroundEmPrimary hover:bg-backgroundEmPrimary border border-borderEmPrimary rounded-full">
             <BodySmall className="text-onBackgroundEmPrimary">
               Coming Soon
             </BodySmall>
