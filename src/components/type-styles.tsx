@@ -59,7 +59,7 @@ const BodySmall = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
 `;
 
 export { Title, Heading1, Heading2, Heading3, BodyLarge, Body, BodySmall };
