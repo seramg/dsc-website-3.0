@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import ReusableContextMenu from "./ui/reusable-context-menu";
 import { Moon, Sun } from "@phosphor-icons/react";
 import { Button } from "./ui/button";
+import { LoaderCircle } from "lucide-react";
 
 interface ToggleButtonProps {
   className?: string;
@@ -46,7 +47,9 @@ const ToggleButton = ({ className }: ToggleButtonProps) => {
 
   if (isDarkMode === null) {
     // Display a loading indicator while determining the initial theme
-    return <div>Loading...</div>;
+    return (
+      <LoaderCircle className="text-onBackgroundEmPrimary animate-spin"></LoaderCircle>
+    );
   }
 
   return (

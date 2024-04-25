@@ -24,7 +24,7 @@ export default function ReusableContextMenu({
   return (
     <ContextMenu>
       <ContextMenuTrigger>{children}</ContextMenuTrigger>
-      <ContextMenuContent>
+      <ContextMenuContent className="bg-backgroundPrimary">
         {items.map((item) => (
           <ContextMenuItem key={item.name} onClick={item.onClick}>
             {item.name}
