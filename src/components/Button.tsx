@@ -1,15 +1,18 @@
 import React from "react";
 import { Button as ButtonComponent } from "./ui/button";
 import { Body } from "./type-styles";
+import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary";
   highlightColor?: string;
+  href?: string;
 }
 
 export default function Button({
   variant = "primary",
   highlightColor,
+  href,
   ...props
 }: ButtonProps) {
   return (
@@ -41,7 +44,13 @@ export default function Button({
       } ${props.className}`}
       onClick={props.onClick}
     >
-      <Body>{props.children}</Body>
+      {href !== undefined ? (
+        <Link href={href}>
+          <Body>{props.children}</Body>
+        </Link>
+      ) : (
+        <Body>{props.children}</Body>
+      )}
     </ButtonComponent>
   );
 }
