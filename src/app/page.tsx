@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="flex flex-col justify-center overflow-x-hidden relative">
-      <MarqueeContainer />
       <Header />
       <HomePage />
       <Footer />
