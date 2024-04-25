@@ -32,9 +32,10 @@ function HomePage() {
         </div>
         <Image
           src="./images/woman-looking-up.svg"
+          priority={true}
           width={0}
           height={0}
-          className="w-auto h-auto z-[1]"
+          className="w-auto min-w-[60%] h-auto z-[1]"
           alt={"woman looking up"}
         />
 
@@ -46,6 +47,7 @@ function HomePage() {
           }
           width={200}
           height={200}
+          priority={true}
           className="absolute w-full bottom-0 z-0"
           alt={""}
         ></Image>
@@ -77,18 +79,18 @@ function HomePage() {
               heading="Community and Learning"
               body="We aim to carve a niche for students in and around the campus, fostering a community that learns together, and creates together."
               buttonText="Join our community"
-              backgroundColor="bg-backgroundEmTertiary"
-              iconBackgroundColor="bg-onBackgroundEmTertiary"
-              cardBorderColor="borderEmTertiary"
+              backgroundColor="bg-backgroundEmSecondary"
+              iconBackgroundColor="bg-onBackgroundEmSecondary"
+              cardBorderColor="borderEmSecondary"
             />
             <GridCard
               image="iconamoon:box-fill"
               heading="Resources"
               body="We’re building a growing repository of useful resources across different verticals that you can use as well as contribute to."
               buttonText="View Resources"
-              backgroundColor="bg-backgroundEmSecondary"
-              iconBackgroundColor="bg-onBackgroundEmSecondary"
-              cardBorderColor="borderEmSecondary"
+              backgroundColor="bg-backgroundEmTertiary"
+              iconBackgroundColor="bg-onBackgroundEmTertiary"
+              cardBorderColor="borderEmTertiary"
             />
             <GridCard
               image="ic:round-stairs"
