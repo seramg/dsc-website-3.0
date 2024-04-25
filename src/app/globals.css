@@ -62,10 +62,11 @@
 
     --lightgrey-50: #fafafa;
     --darkgrey-950: #121212;
+    --darkgrey-600: #36435a;
 
     --darkblue-900: #0a2d49;
     --darkblue-800: #0d3c61;
-    --darkblue-700: #114b7a;
+    --darkblue-700: #0d3c61;
 
     --darkyellow-900: #4d3a02;
     --darkyellow-800: #664d03;
@@ -115,7 +116,7 @@
     --border-em-secondary: var(--primary-200-green);
     --border-em-tertiary: var(--primary-200-yellow);
 
-    --toggle-background: var(--primary-200-blue);
+    --illo-surface-primary: var(--neutralcore-white);
 
     /* Shadcn Colors */
 
@@ -189,6 +190,8 @@
     --border-em-primary: var(--darkblue-700);
     --border-em-secondary: var(--darkgreen-700);
     --border-em-tertiary: var(--darkyellow-700);
+
+    --illo-surface-primary: var(--darkblue-700);
 
     /* Shadcn Colors */
 

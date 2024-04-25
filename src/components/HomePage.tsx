@@ -166,7 +166,7 @@ function HomePage() {
           className="w-full h-auto"
           alt={"boy kicking ball"}
         />
-        <div className="z-0 relative flex flex-col items-center justify-center text-center my-0 bg-backgroundPrimary bg-contain	 bg-no-repeat !pt-0	gap-16 px-6 py-12 md:py-[84px]">
+        <div className="z-0 relative flex flex-col items-center justify-center text-center my-0 bg-illoSurfacePrimary bg-contain	 bg-no-repeat !pt-0	gap-16 px-6 py-12 md:py-[84px]">
           <div className="z-[1] text-center col-start-1 md:col-start-2 col-end-5 md:col-end-8 lg:col-end-12 flex flex-col gap-6 items-center justify-center">
             <Title className="xl:max-w-[75%]">
               The hardest part is taking that first step

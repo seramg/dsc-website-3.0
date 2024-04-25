@@ -83,6 +83,8 @@ const config = {
         borderEmSecondary : "var(--border-em-secondary)",
         borderEmTertiary : "var(--border-em-tertiary)",
 
+        illoSurfacePrimary: "var(--illo-surface-primary)",
+
         // Shadcn Colours
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
