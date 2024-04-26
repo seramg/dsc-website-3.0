@@ -31,9 +31,8 @@ export default function Contributors() {
   const resultantTheme = theme === "system" ? systemTheme : theme;
 
   return (
-    <div className="bg-backgroundPrimary flex flex-col overflow-x-hidden">
-      <div className="header bg-backgroundPrimary h-[72px] w-full"></div>
-      <div className="relative bg-backgroundEmPrimary dark:bg-blue-600 bg-center	bg-no-repeat bg-cover grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-y-6 md:gap-y-12 px-6 py-6 md:py-[84px] !pb-0 min-h-[50vh] justify-center">
+    <div className="bg-backgroundPrimary flex flex-col overflow-x-hidden border-b border-borderPrimary">
+      <div className="relative bg-backgroundEmPrimary bg-center	bg-no-repeat bg-cover grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-y-6 md:gap-y-12 px-6 py-6 md:py-[84px] !pb-0 min-h-[50vh] justify-center">
         <div className=" text-center col-start-1 md:col-start-2 col-end-5 md:col-end-8 lg:col-end-12 flex flex-col gap-8 items-center justify-center">
           <div className="flex flex-col gap-4 items-center">
             <Body className="text-onBackgroundSecondary w-full">
@@ -216,9 +215,6 @@ export default function Contributors() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="footer bg-backgroundPrimary h-[500px] w-full">
-        <div className="prefooter bg-backgroundEmPrimary h-[72px] w-full"></div>
       </div>
     </div>
   );
