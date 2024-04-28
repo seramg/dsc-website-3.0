@@ -48,7 +48,7 @@ function HomePage() {
           className="w-auto min-w-[60%] h-auto z-[1]"
           alt={"woman looking up"}
         />{" "}
-        {resolvedTheme && (
+        {resolvedTheme == "dark" && (
           <Image
             src={"/assets/images/stars-background.svg"}
             width={0}
