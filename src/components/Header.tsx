@@ -19,43 +19,6 @@ const Header = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop && scrollTop > 120) {
-        setHeaderTop(-120);
-      } else {
-        setHeaderTop(0);
-      }
-      setLastScrollTop(scrollTop);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollTop]);
-
-  useEffect(() => {
-    const playShowAnimation = () => {
-      showAnimationApi.start({ from: {top: "-300px"}, to: {top: "-50px"}});
-      showAnimationApi.start({ from: {top: "-50px"}, to: {top: "-300px"}, delay: 1500 });
-    }
-    
-    if (theme == "light") {
-      if (sunMoonRotation % 1 != 0) {
-        setSunMoonRotation(s => s + 0.5);
-        playShowAnimation();
-      }
-    } else {
-      if (sunMoonRotation % 1 == 0) {
-        setSunMoonRotation(s => s + 0.5);
-        playShowAnimation();
-      }
-    }
-  }, [theme])
-
   let rotateAnimationProps = useSpring({
     config: {
       duration: 400,
@@ -63,13 +26,18 @@ const Header = () => {
       friction: 120,
       tension: 120,
     },
-    delay: 400,
+    delay: 100,
     rotate: `${sunMoonRotation}turn`,
   });
+  const mobileFinalPos = 12;
+  const desktopFinalPos = -44;
+  const desktopInitialPos = -200;
+  const mobileInitialPos = -300;
 
   const [showAnimationProps, showAnimationApi] = useSpring(
     () => ({
-      from: {top: "-300px"}, to: [{top: "-50px"}],
+      from: { top: `-${isSmallScreen ? 200 : 300}px` },
+      to: [{ top: `${isSmallScreen ? mobileFinalPos : desktopFinalPos}px` }],
       config: {
         duration: 200,
         mass: 5,
@@ -78,18 +46,73 @@ const Header = () => {
       },
     }),
     []
-  )
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop && scrollTop > 120) {
+        setHeaderTop(-120);
+      } else {
+        setHeaderTop(0);
+      }
+      setLastScrollTop(scrollTop);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollTop]);
+
+  useEffect(() => {
+    const playShowAnimation = () => {
+      showAnimationApi.start({
+        from: {
+          top: `${isSmallScreen ? mobileInitialPos : desktopFinalPos}px`,
+        },
+        to: { top: `${isSmallScreen ? mobileFinalPos : desktopFinalPos}px` },
+      });
+      showAnimationApi.start({
+        from: { top: `${isSmallScreen ? mobileFinalPos : desktopFinalPos}px` },
+        to: {
+          top: `${isSmallScreen ? mobileInitialPos : desktopInitialPos}px`,
+        },
+        delay: 1500,
+      });
+    };
+
+    if (theme == "light") {
+      if (sunMoonRotation % 1 != 0) {
+        setSunMoonRotation((s) => s + 0.5);
+        playShowAnimation();
+      }
+    } else {
+      if (sunMoonRotation % 1 == 0) {
+        setSunMoonRotation((s) => s + 0.5);
+        playShowAnimation();
+      }
+    }
+  }, [showAnimationApi, sunMoonRotation, theme]);
 
   return (
-    <div style={{top: headerTop}} className="fixed left-0 w-full z-10 transition-[top] duration-500">
+    <div
+      style={{ top: headerTop }}
+      className="fixed left-0 w-full z-10 transition-[top] duration-500"
+    >
       <MarqueeContainer />
       <div className="z-[1] h-76 bg-backgroundPrimary grid grid-cols-12 p-x-4 items-center min-h-[72px] py-4 top-0">
         <animated.img
-          style={{transform: "translateX(-50%)", ...rotateAnimationProps, ...showAnimationProps}}
+          style={{
+            transform: "translateX(-50%)",
+            ...rotateAnimationProps,
+            ...showAnimationProps,
+          }}
           className="absolute -z-20 left-1/2"
           src="/images/sun-moon-comp.svg"
-          width={300}
-          height={300}
+          width={isSmallScreen ? 200 : 300}
+          height={isSmallScreen ? 200 : 300}
           alt="sunmooncomponent"
         />
         <div className="flex gap-8 !col-start-2 col-span-4 lg:col-span-4">
