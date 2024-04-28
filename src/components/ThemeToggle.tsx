@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import ReusableContextMenu from "./ui/reusable-context-menu";
 import { Moon, Sun } from "@phosphor-icons/react";
 import { Button } from "./ui/button";
 import { LoaderCircle } from "lucide-react";
-import { animated, useSpring, useTransition } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 
 interface ToggleButtonProps {
   className?: string;
