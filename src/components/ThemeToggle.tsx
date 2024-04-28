@@ -12,12 +12,17 @@ interface ToggleButtonProps {
 
 const ToggleButton = ({ className }: ToggleButtonProps) => {
   const { theme, setTheme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
 
   const toggleAnimation = useSpring({
     config: { duration: 100 },
     transform: isDarkMode ? 'translateX(2rem)' : 'translateX(0)',
   });
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     // Check if theme is already set in local storage
@@ -50,7 +55,7 @@ const ToggleButton = ({ className }: ToggleButtonProps) => {
     setIsDarkMode(systemTheme === "dark");
   };
 
-  if (isDarkMode === null) {
+  if (isDarkMode === null || !mounted) {
     // Display a loading indicator while determining the initial theme
     return (
       <LoaderCircle className="text-onBackgroundEmPrimary animate-spin"></LoaderCircle>
