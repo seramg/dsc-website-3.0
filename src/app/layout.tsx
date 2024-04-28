@@ -66,7 +66,8 @@ export default function RootLayout({
             <Suspense fallback={<Loading />}>
               <main className="flex flex-col justify-center overflow-x-hidden relative">
                 <Header />
-                {children}
+                <div className="mt-24"></div>  {/* spacing for sticky header */}
+                  {children}
                 <Footer />
               </main>
             </Suspense>
