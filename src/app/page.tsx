@@ -149,13 +149,16 @@ function HomePage() {
               variant="secondary"
               highlightColor="onBackgroundEmSecondary"
               className="w-full sm:w-auto"
+              href="/sponsors"
             >
               Learn more
             </Button>
           </div>
           <div>
             <Image
-              src="/images/books.svg"
+              src={`/assets/images/books${
+                resultantTheme === "light" ? "" : "-dark"
+              }.svg`}
               height={0}
               width={0}
               className="w-auto h-auto max-w-[300px] lg:max-w-[400px] xl:max-w-[600px]"
