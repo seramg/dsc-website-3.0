@@ -35,7 +35,7 @@ export function ResponsiveSheet({ trigger, content }: ResponsiveSheetProps) {
     return (
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerTrigger asChild>{trigger}</DrawerTrigger>
-        <DrawerContent className="bg-backgroundSecondary flex flex-col justify-between max-h-[90%]">
+        <DrawerContent className="bg-backgroundSecondary flex flex-col justify-between max-h-[90%] border-borderPrimary">
           {content}
 
           <DrawerFooter className="bg-backgroundSecondary pt-4 border-solid border-borderPrimary border-t-[1px]">
@@ -52,7 +52,7 @@ export function ResponsiveSheet({ trigger, content }: ResponsiveSheetProps) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>{trigger}</SheetTrigger>
 
-      <SheetContent className="bg-backgroundSecondary p-0 flex flex-col gap-0 justify-between">
+      <SheetContent className="bg-backgroundSecondary p-0 flex flex-col gap-0 justify-between border-borderPrimary">
         {content}
         <SheetFooter className="bg-backgroundSecondary p-4 border-solid border-borderPrimary border-t-[1px]">
           <SheetClose asChild>
