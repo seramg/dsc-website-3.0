@@ -10,13 +10,13 @@ import { useTheme } from "next-themes";
 import Loading from "./loading";
 
 function HomePage() {
-  const { resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  if (!mounted) return <Loading />
+  if (!mounted) return <Loading />;
 
   return (
     <>
@@ -165,7 +165,7 @@ function HomePage() {
           <div>
             <Image
               src={`/assets/images/books${
-                resultantTheme === "light" ? "" : "-dark"
+                resolvedTheme === "light" ? "" : "-dark"
               }.svg`}
               height={0}
               width={0}

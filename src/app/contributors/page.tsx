@@ -29,12 +29,12 @@ import Loading from "../loading";
 
 export default function Contributors() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  if (!mounted) return <Loading />
+  if (!mounted) return <Loading />;
 
   return (
     <div className="bg-backgroundPrimary flex flex-col overflow-x-hidden border-b border-borderPrimary">

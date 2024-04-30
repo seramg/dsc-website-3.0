@@ -6,23 +6,32 @@ import {
   Heading1,
   Title,
 } from "@/components/type-styles";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { sponsors } from "@/data/sponsors";
 import Image from "next/image";
 import SponsorCard from "./components/sponsor-card";
+import { useTheme } from "next-themes";
 
-import useResultantTheme from "@/components/hooks/useResultantTheme";
 import CloudBottomImage from "@/../public/assets/images/clouds-bottom.png";
 import CloudBottomImageDark from "@/../public/assets/images/clouds-bottom-green.png";
 import Button from "@/components/Button";
+import Loading from "../loading";
 
 export default function Sponsors() {
-  const resultantTheme = useResultantTheme();
+  const { resolvedTheme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <Loading />;
+
   return (
     <div className="bg-backgroundPrimary flex flex-col overflow-x-hidden">
       <div className="relative bg-backgroundEmSecondary flex flex-col pb-12 pb-[84px]">
-        {resultantTheme == "dark" && (
+        {resolvedTheme == "dark" && (
           <Image
             layout="fill"
             src={"/assets/images/stars-background.svg"}
@@ -55,7 +64,7 @@ export default function Sponsors() {
           </div>
           <Image
             src={`/assets/images/books${
-              resultantTheme === "light" ? "" : "-dark"
+              resolvedTheme === "light" ? "" : "-dark"
             }.svg`}
             height={0}
             width={0}
@@ -67,7 +76,7 @@ export default function Sponsors() {
         <Image
           className="w-lvw max-w-[100vw] absolute bottom-0 left-0 right-0"
           src={
-            resultantTheme === "light" ? CloudBottomImage : CloudBottomImageDark
+            resolvedTheme === "light" ? CloudBottomImage : CloudBottomImageDark
           }
           alt=""
         ></Image>
