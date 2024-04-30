@@ -10,13 +10,13 @@ import { useTheme } from "next-themes";
 import Loading from "./loading";
 
 function HomePage() {
-  const { resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  if (!mounted) return <Loading />
+  if (!mounted) return <Loading />;
 
   return (
     <>
@@ -157,13 +157,16 @@ function HomePage() {
               variant="secondary"
               highlightColor="onBackgroundEmSecondary"
               className="w-full sm:w-auto"
+              href="/sponsors"
             >
               Learn more
             </Button>
           </div>
           <div>
             <Image
-              src="/images/books.svg"
+              src={`/assets/images/books${
+                resolvedTheme === "light" ? "" : "-dark"
+              }.svg`}
               height={0}
               width={0}
               className="w-auto h-auto max-w-[300px] lg:max-w-[400px] xl:max-w-[600px]"
