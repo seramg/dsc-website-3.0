@@ -7,14 +7,19 @@ import Navbar from "./Navbar";
 import { SideBar } from "./SideBar";
 import useIsSmallScreen from "./hooks/useIsSmallScreen";
 import Link from "next/link";
-import useResultantTheme from "./hooks/useResultantTheme";
+import { useTheme } from "next-themes";
 import MarqueeContainer from "./MarqueeContainer";
 
 const Header = () => {
   const isSmallScreen = useIsSmallScreen();
-  const resultantTheme = useResultantTheme();
+  const {resolvedTheme} = useTheme();
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +39,8 @@ const Header = () => {
     };
   }, [lastScrollTop]);
 
+  if (!mounted) return null;
+
   return (
     <div
       style={{ top: headerTop }}
@@ -46,7 +53,7 @@ const Header = () => {
             {isSmallScreen ? (
               <Image
                 src={
-                  resultantTheme == "light"
+                  resolvedTheme == "light"
                     ? "/assets/logos/gdsc-standalone-logo.svg"
                     : "/assets/logos/gdsc-standalone-logo-dark.svg"
                 } // Route of the image file
@@ -58,7 +65,7 @@ const Header = () => {
             ) : (
               <Image
                 src={
-                  resultantTheme == "light"
+                  resolvedTheme == "light"
                     ? "/assets/logos/gdsc-horizontal-logo.svg"
                     : "/assets/logos/gdsc-horizontal-logo-dark.svg"
                 } // Route of the image file
